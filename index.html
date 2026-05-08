@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tongaat Hulett: A Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E3001B;
+    --dark: #111111;
+    --mid: #2b2b2b;
+    --muted: #555555;
+    --light: #2b2b2b;
+    --border: #e0ddd8;
+    --card-bg: #ffffff;
+    --tag-bg: #f5f3ef;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--dark);
+    font-family: 'Montserrat', Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--red);
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .topbar-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    border-bottom: 2px solid var(--dark);
+    padding: 48px 24px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 7vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .hero-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--mid);
+    max-width: 640px;
+    border-left: 3px solid var(--red);
+    padding-left: 16px;
+    margin-bottom: 24px;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-meta {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── INSTRUCTION BANNER ── */
+  .hint-bar {
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hint-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  .hint-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    font-style: italic;
+    color: #aaaaaa;
+  }
+
+  /* ── TIMELINE WRAPPER ── */
+  .timeline-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+    position: relative;
+  }
+
+  /* vertical spine */
+  .timeline-wrap::before {
+    content: '';
+    position: absolute;
+    left: calc(24px + 15px);
+    top: 48px;
+    bottom: 64px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--red) 0%, #e0ddd8 85%, transparent 100%);
+  }
+
+  @media (min-width: 580px) {
+    .timeline-wrap::before {
+      left: calc(24px + 90px + 15px);
+    }
+  }
+
+  /* ── EVENT ── */
+  .event {
+    display: flex;
+    gap: 0;
+    margin-bottom: 4px;
+    position: relative;
+  }
+
+  /* date column — hidden on mobile */
+  .event-date-col {
+    display: none;
+    width: 90px;
+    flex-shrink: 0;
+    padding-top: 18px;
+    text-align: right;
+    padding-right: 0;
+  }
+
+  @media (min-width: 580px) {
+    .event-date-col { display: block; }
+  }
+
+  .event-date-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* spine column */
+  .event-spine {
+    width: 32px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 18px;
+  }
+
+  .event-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--red);
+    flex-shrink: 0;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 2;
+  }
+
+  .event.open .event-dot {
+    background: var(--red);
+    transform: scale(1.3);
+  }
+
+  /* card body */
+  .event-body {
+    flex: 1;
+    padding: 0 0 32px 12px;
+  }
+
+  .event-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .event-card:hover {
+    border-color: #d0cdc8;
+    border-left-color: var(--red);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+
+  .event.open .event-card {
+    border-left-color: var(--red);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+  }
+
+  /* card header */
+  .event-header {
+    padding: 16px 16px 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .event-tag {
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 2px;
+    margin-top: 2px;
+  }
+
+  .tag-founding  { background: #eef2ff; color: #3355cc; border: 1px solid #c8d0f0; }
+  .tag-milestone { background: #f0faf0; color: #227722; border: 1px solid #b8ddb8; }
+  .tag-crisis    { background: #fff0f0; color: var(--red); border: 1px solid #f0c0c0; }
+  .tag-legal     { background: #fff8ee; color: #bb6600; border: 1px solid #e8d090; }
+  .tag-ongoing   { background: #f5f3ef; color: #666; border: 1px solid #ddd; }
+
+  .event-header-text { flex: 1; min-width: 0; }
+
+  .event-mobile-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  @media (min-width: 580px) {
+    .event-mobile-date { display: none; }
+  }
+
+  .event-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 2.2vw, 16px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark);
+    margin-bottom: 5px;
+  }
+
+  .event-teaser {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .event-toggle {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    transition: background 0.2s;
+  }
+
+  .event-toggle svg {
+    width: 9px;
+    height: 9px;
+    stroke: var(--muted);
+    fill: none;
+    transition: transform 0.3s;
+  }
+
+  .event.open .event-toggle {
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  .event.open .event-toggle svg {
+    stroke: #fff;
+    transform: rotate(180deg);
+  }
+
+  /* expanded content */
+  .event-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .event.open .event-expand {
+    max-height: 1400px;
+  }
+
+  .event-content {
+    padding: 0 18px 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .event-body-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-top: 16px;
+  }
+
+  .event-body-text p + p { margin-top: 10px; }
+
+  /* image grid */
+  .event-images {
+    display: grid;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .event-images.cols-1 { grid-template-columns: 1fr; }
+  .event-images.cols-2 { grid-template-columns: 1fr 1fr; }
+
+  @media (max-width: 480px) {
+    .event-images.cols-2 { grid-template-columns: 1fr; }
+  }
+
+  .event-img-wrap {
+    position: relative;
+    overflow: hidden;
+    background: var(--light);
+    border: 1px solid var(--border);
+  }
+
+  .event-img-wrap img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .event-img-wrap:hover img { transform: scale(1.03); }
+
+  .event-img-placeholder {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    gap: 8px;
+  }
+
+  .event-img-placeholder svg {
+    width: 32px;
+    height: 32px;
+    stroke: #ccc;
+    fill: none;
+  }
+
+  .event-img-placeholder span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #bbb;
+  }
+
+  .event-img-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    padding: 6px 0 0;
+    line-height: 1.4;
+  }
+
+  /* pullquote */
+  .pullquote {
+    margin: 18px 0;
+    padding: 14px 18px;
+    border-left: 3px solid var(--red);
+    background: var(--light);
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--dark);
+  }
+
+  .pullquote cite {
+    display: block;
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+
+  /* ── SOURCES ── */
+  .sources-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    border-top: 2px solid var(--dark);
+  }
+
+  .sources-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .sources-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sources-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .sources-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--red);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .sources-list a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--mid);
+    text-decoration: none;
+    line-height: 1.5;
+    word-break: break-all;
+    transition: color 0.15s;
+  }
+
+  .sources-list a:hover { color: var(--red); }
+
+  /* ── FOOTER ── */
+  .footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: #bbb;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-label">News24</span>
+  <div class="topbar-dot"></div>
+  <span class="topbar-label">Business</span>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Timeline &middot; Tongaat Hulett</div>
+  <h1 class="hero-title">Cane titan<br>to <em>collapse?</em></h1>
+  <p class="hero-intro">With roots dating back to the 19th century and a listing in 1952, Tongaat Hulett currently has three sugar mills operating on the north coast of KwaZulu-Natal. It employs some 2 500 people directly, with some 3 500 growers, about 500 which are commercial scale, supplying the mills. Tongaat's name itself is derived from a river, the 'uThongathi' River. The town of Tongaat name was officially changed from the anglicised version to, oThongathi, in 2010, and a liquidation of SA's storied sugar giant is expected to economically and socially devastate the area.</p>
+
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">R3.5bn</span>
+      <span class="hero-stat-label">Accounting fraud</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">R12bn</span>
+      <span class="hero-stat-label">Debt pile (SA)</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">2 500</span>
+      <span class="hero-stat-label">Direct employees</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">170+</span>
+      <span class="hero-stat-label">Years of history</span>
+    </div>
+  </div>
+
+  <p class="hero-meta">News24 &middot; Updated May 2026</p>
+</header>
+
+<!-- HINT BAR -->
+<div class="hint-bar">
+  <div class="hint-dot"></div>
+  <p class="hint-text">Click on any event to expand the full details.</p>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-wrap">
+
+  <!-- 1: 1850s -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">1850s</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-founding">Founding</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">1850s</div>
+            <div class="event-headline">The Huletts Corporation takes root</div>
+            <div class="event-teaser">The origins of one of SA's most storied sugar dynasties begin in the 1850s.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The Huletts Corporation had its beginnings in the 1850s, with the original incorporation in 1892 as Sir J L Hulett and Sons.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: 1875 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">1875</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-founding">Founding</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">1875</div>
+            <div class="event-headline">The Tongaat Group is born</div>
+            <div class="event-teaser">A partnership between Edward Saunders and W.J. Mirrlees gives rise to the Tongaat Group.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The Tongaat Group began in 1875 as a partnership between Edward Saunders and W.J. Mirrlees and was incorporated in 1892 as Tongaat Sugar in Pretoria.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3: 1962 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">1962</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-milestone">Milestone</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">1962</div>
+            <div class="event-headline">Anglo American enters the picture</div>
+            <div class="event-teaser">The mining giant buys its first shares in Tongaat &mdash; a relationship that would last nearly five decades.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Anglo American buys its first shares in Tongaat and held an interest of more than 50% between 1998 and 2009, when it sold its shareholding in the company.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4: 1969-1970 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">1969&ndash;70</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-milestone">Milestone</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">1969&ndash;1970</div>
+            <div class="event-headline">A diversified industrial empire</div>
+            <div class="event-teaser">At its peak of diversification, the Tongaat Group spans aluminium, textiles, sugar, cotton and more.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The Tongaat Group operated a diversified industrial business with interests in aluminium, building materials, consumer foods, cotton, edible oils, industrial and commercial catering, mushrooms, sugar and agricultural land development, starch and glucose, textiles and transport.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: 1982 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">1982</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-milestone">Milestone</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">1982</div>
+            <div class="event-headline">Tongaat and Hulett merge</div>
+            <div class="event-teaser">The Tongaat-Hulett Group is formed.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The Tongaat-Hulett Group was formed in 1982, when the Tongaat Group merged with Hulett's.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6: 2007 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">2007</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-milestone">Milestone</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">2007</div>
+            <div class="event-headline">Hulamin unbundled</div>
+            <div class="event-teaser">The group sheds its aluminium arm, listing Hulamin as an independent producer.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The Tongaat-Hulett Group unbundles Hulamin, an independent niche producer of aluminium rolled, extruded and other semi-fabricated and finished products.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7: 2008 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">2008</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-milestone">Milestone</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">2008</div>
+            <div class="event-headline">Tongaat Hulett Limited &mdash; a focused agri-processor</div>
+            <div class="event-teaser">A new name and a sharpened focus on sugar, land management and property development.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat Hulett then became a focused agri-processing business which includes integrated components of land management, property development and agriculture. As a result of this renewed focus, Tongaat Hulett Group's name changed to Tongaat Hulett Limited.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8: 2019 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">2019</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-crisis">Crisis</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">2019</div>
+            <div class="event-headline">R3.5bn accounting fraud &mdash; SA's second biggest after Steinhoff</div>
+            <div class="event-teaser">Tongaat requests a JSE suspension after discovering a massive accounting scandal. A PwC probe fingers 10 executives.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat requests a suspension from the JSE after discovering an alleged R3.5 billion accounting fraud, SA's second biggest after Steinhoff. It embarks on a turnaround process but struggles with a crippling local debt pile.</p>
+            <p>As part of the turnaround process, Tongaat Hulett disposed of its sugar operations in Namibia and Eswatini and its starch business in SA (Now Barloworld's Ingrain). A PwC investigation points the finger at 10 executives for, among other allegations, profit inflation.</p>
+          </div>
+          <div class="pullquote">
+            <p>&ldquo;SA's second biggest accounting scandal after Steinhoff &mdash; an alleged R3.5 billion in fraudulent profit inflation.&rdquo;</p>
+            <cite>&mdash; PwC investigation findings, 2019</cite>
+          </div>
+        </div></div><!-- closes event-content and event-expand -->
+      </div><!-- closes event-card -->
+    </div><!-- closes event-body -->
+  </div><!-- closes event 8 -->
+
+  <!-- 9: 2022 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">2022</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-crisis">Crisis</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">2022</div>
+            <div class="event-headline">Business rescue &mdash; lenders lose patience</div>
+            <div class="event-teaser">After years of turnaround attempts disrupted in part by the KZN riots, Tongaat enters business rescue.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat enters business rescue after lenders lose patience with the pace of the turnaround. Tongaat's turnaround efforts, which had included land-sale plans, were in part disrupted by the KwaZulu-Natal riots in 2019.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10: January 2024 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">Jan 2024</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-legal">Legal</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">January 2024</div>
+            <div class="event-headline">Creditors approve Vision's rescue plan &mdash; but RGS cries foul</div>
+            <div class="event-teaser">A rival Mozambican consortium pulls its plan at the last minute, then alleges bias &mdash; and a R2bn bank letter turns out to be fake.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat creditors approve a plan put forward by a consortium called Vision, with another plan, put forward by rival Mozambican consortium RGS, pulled at the last minute. RGS alleges bias in the process, denied by Tongaat's rescue practitioners.</p>
+            <p>It also emerged that a R2 billion bank letter to show proof of funding was faked, but RGS has denied wrongdoing, saying it was an unfortunate mishap that followed a junior employee moving the funds to another account.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11: 2024-2026 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">2024&ndash;26</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-legal">Legal</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">2024&ndash;2026</div>
+            <div class="event-headline">RGS launches a wave of court challenges</div>
+            <div class="event-teaser">The rival consortium questions whether Vision has the funding to implement its own plan &mdash; and challenges its legality in court.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>RGS launches court challenges and alleges the Vision plan is unlawful, questioning whether it had the funding to implement its own plan.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12: August 2024 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">Aug 2024</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-crisis">Crisis</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">August 2024</div>
+            <div class="event-headline">Shareholders shoot down debt-for-equity swap</div>
+            <div class="event-teaser">The rejection kicks off an alternative sales process &mdash; and likely seals the company's JSE delisting.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat shareholders shoot down debt-for-equity swap, kicking off an alternative sales process by which operations in SA, Mozambique, Botswana and Zimbabwe are sold separately.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13: June 2025 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">Jun 2025</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-crisis">Crisis</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">June 2025</div>
+            <div class="event-headline">SA sale deadline passes &mdash; talks drag on</div>
+            <div class="event-teaser">The intended deadline for the sale of the SA business, where R12bn in debt sits, passes without resolution.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The intended deadline for the sale of the SA business, where the group's some R12 billion debt-pile sits, passes.</p>
+            <p>Discussions over increased post-commencement funding between Vision, the lender group, and the SA government continue. Low sugar prices and increasing imports complicate this.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14: December 2025 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">Dec 2025</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-legal">Legal</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">December 2025</div>
+            <div class="event-headline">Tongaat loses Supreme Court of Appeal sugar levy battle</div>
+            <div class="event-teaser">The courts rule that sugar levy obligations are statutory &mdash; and business rescue cannot shield Tongaat from them.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat loses its Supreme Court of Appeal battle over the payment over its sugar levy obligations, another major blow. It had argued that business rescue proceedings should shield it from obligations that the courts, so far, have concluded are statutory in nature and therefore obligatory.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15: February 2026 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">Feb 2026</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-crisis">Crisis</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">February 2026</div>
+            <div class="event-headline">Business rescue practitioners file for liquidation</div>
+            <div class="event-teaser">Vision's demands for sugar industry reforms were never part of the plan &mdash; practitioners say it is no longer implementable.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>Tongaat's business rescue practitioners file for liquidation, saying that Vision's demands for sugar industry reforms were not part of the plan, and it is no longer implementable.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16: 12 April 2026 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">12 Apr 2026</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-legal">Legal</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">12 April 2026</div>
+            <div class="event-headline">NPA summons RGS to court over dodgy R2bn bank letter</div>
+            <div class="event-teaser">The National Prosecuting Authority confirms it has taken action over the fraudulent proof-of-funding document.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The National Prosecuting Authority confirms it has summoned RGS to court over the matter of its dodgy R2 billion bank letter.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17: 17 April 2026 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">17 Apr 2026</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-legal">Legal</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">17 April 2026</div>
+            <div class="event-headline">KZN High Court hearing ends in postponement &mdash; R200m lifeline agreed</div>
+            <div class="event-teaser">Parties agree to provide an additional R200m in post-commencement funding, buying more time.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>A KwaZulu-Natal High Court hearing into the liquidation ends with a postponement of the matter. This follows an agreement between the parties to provide an additional R200 million in post-commencement funding.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18: ~12 May 2026 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">~12 May 2026</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-ongoing">Upcoming</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">~12 May 2026</div>
+            <div class="event-headline">NPA expected to formally summon RGS</div>
+            <div class="event-teaser">The date at which the NPA will reportedly summon RGS to court over the fraudulent bank letter.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The date at which the National Prosecuting Authority will reportedly summon RGS to court regarding the fraudulent R2 billion bank letter submitted during the business rescue process.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 19: 17-18 June 2026 -->
+  <div class="event" onclick="toggleEvent(this)">
+    <div class="event-date-col"><div class="event-date-text">17&ndash;18 Jun 2026</div></div>
+    <div class="event-spine"><div class="event-dot"></div></div>
+    <div class="event-body">
+      <div class="event-card">
+        <div class="event-header">
+          <span class="event-tag tag-ongoing">Upcoming</span>
+          <div class="event-header-text">
+            <div class="event-mobile-date">17&ndash;18 June 2026</div>
+            <div class="event-headline">Provisional liquidation hearing resumes</div>
+            <div class="event-teaser">The full legal showdown &mdash; business rescue practitioners' application and RGS's counter-application &mdash; is due to be heard.</div>
+          </div>
+          <div class="event-toggle"><svg viewBox="0 0 10 10"><polyline points="2,3 5,7 8,3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="event-expand"><div class="event-content">
+          <div class="event-body-text">
+            <p>The legal proceedings regarding the provisional liquidation hearing involving Tongaat Hulett, including the application from the business rescue practitioners, and RGS's counter-application, are due to resume.</p>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SOURCES -->
+<div class="sources-wrap">
+  <p class="sources-title">Sources &amp; Further Reading</p>
+  <ul class="sources-list">
+    <li><a href="https://www.tongaat.com/overview/history/" target="_blank">Tongaat Hulett &mdash; Company History</a></li>
+    <li><a href="https://sahistory.org.za/place/othongathi" target="_blank">SA History Archive &mdash; oThongathi</a></li>
+    <li><a href="https://www.tongaat.com/business-rescue/key-documents-and-latest-communication-releases/" target="_blank">Tongaat Hulett &mdash; Business Rescue Key Documents</a></li>
+    <li><a href="https://www.news24.com/business/companies/explainer-tongaat-creditors-approve-visions-plan-whats-next-for-the-embattled-sugar-giant-20240111" target="_blank">News24 &mdash; Explainer: Tongaat creditors approve Vision's plan (January 2024)</a></li>
+    <li><a href="https://www.news24.com/business/companies/tongaat-shareholders-shoot-down-debt-for-equity-swap-likely-sealing-its-jse-delisting-20240808" target="_blank">News24 &mdash; Tongaat shareholders shoot down debt-for-equity swap (August 2024)</a></li>
+    <li><a href="https://www.news24.com/business/companies/npa-summons-tongaat-bidder-rgs-to-court-over-dodgy-r2bn-bank-letter-20260410-0663" target="_blank">News24 &mdash; NPA summons RGS to court over dodgy R2bn bank letter (April 2026)</a></li>
+    <li><a href="https://www.news24.com/business/companies/tongaat-gets-three-month-reprieve-as-state-eyes-solution-for-sas-sugar-albatross-20260416-1091" target="_blank">News24 &mdash; Tongaat gets three-month reprieve (April 2026)</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">News24 &middot; This timeline will be updated as the story develops.</div>
+
+<script>
+  function toggleEvent(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.event.open').forEach(e => e.classList.remove('open'));
+    if (!isOpen) {
+      el.classList.add('open');
+      setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+    }
+  }
+</script>
+</body>
+</html>
